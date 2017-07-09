@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>WatsonWoof</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" / />
+  </head>
+  <body>
+    <h1>WatsonWoof</h1>
+    {% for dog in dogs %}
+      	  <p>Name: {{ dog.name }}</p>
+      	{% if dog.value > 0 %}
+          <p>Value: {{ dog.value}}</p>
+      	{% else %}
+          <p>Value: Unknown</p>
+      	{% endif%}      <p>Gender: {{ dog.gender}}</p>
+      <p>Breed: {{ dog.breed}}</p>
+      <p>Age: {{ dog.age}}</p>
+      <hr />
+    {% endfor %}
+    <hr />
+    <footer>All Rights Reserved, WatsonWoof 2017</footer>
+  </body>
+ </html>
