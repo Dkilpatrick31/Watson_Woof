@@ -3,13 +3,13 @@
 
 {% block content %}
 
-<h1>{{ username }}'s collection:</h1>
 
-{% for dog in dogs %}
-<a href="/{{dog.id}}">
-  <h3>{{ dog.name }}</h3>
-</a>
-
-{% endfor %}
+{% if user.is_authenticated %}
+        <h1>{{ user.username }} welcome to your profile page</h1>
+        <img src="{{ user.userprofile.profile_picture.url }}" width = "150" height = "150"  />
+        <h2>{{ user.userprofile.first_name }}</h2>
+        <h2>{{ user.userprofile.second_name }}</h2>
+        <h2>{{ user.userprofile.user_country }}</h2>
+        {% endif %}
 
 {% endblock %}

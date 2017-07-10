@@ -6,12 +6,18 @@
   </head>
 
     <h1>Dog Profile</h1>
+      <a href="/{{dog.id}}">
+        <p>Name: {{ dog.name }}</p>
+      </a>
+      <a href="/user/{{dog.user.username}}"
+        <p>Found By: {{dog.user.username }}</p>
+      </a>
 
     <h2> Name: {{ dog.name}}</h1>
     <p> Value: {{ dog.value }}</p>
-    <p> Gender{{ dog.gender }}</p>
-    <p> Breed{{ dog.breed }}</p>
-    <p> Age{{ dog.age }}</p>
+    <p> Gender: {{ dog.gender }}</p>
+    <p> Breed: {{ dog.breed }}</p>
+    <p> Age: {{ dog.age }}</p>
 
     <!-- Get the rest linked with Models.py -->
     <!-- <p> Location{{ dog.location }}</p>
@@ -20,4 +26,4 @@
     <p> Dog Compatability{{ dog.dogcompatability }}</p>
     <p> Description{{ dog.description }}</p> -->
 
-    {% endblock %}
+{% endblock %}

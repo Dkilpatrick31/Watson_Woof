@@ -7,6 +7,7 @@
   <title>Watson Woof</title>
 </header>
 
+
 <div class="jumbotron">
   <div class="container">
     <h1>Watson Woof</h1>
@@ -42,26 +43,7 @@
         </div>
         {% endif %}
 
-        {% if user.is_authenticated %}
-             <a  href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a> |
-             <a  href="{% url 'logout' %}">Logout</a>
-         {% else %}
-             <a  href="{% url 'login' %}">Login</a>
-         {% endif %}
-        {% for dog in dogs %}
-          <a href="/{{dog.id}}">
-            <p>Name: {{ dog.name }}</p>
-          </a>
-          <a href="/user/{{dog.user.username}}"
-            <p>Found By: {{dog.user.username }}</p>
-          </a>
-          {% if dog.value > 0 %}
-            <p>Value: {{ dog.value}}</p>
-          {% else %}
-            <p>Value: Unknown</p>
-          {% endif%}
-          <hr />
-        {% endfor %}
+
         <form action="post_url/" method="post">
             {% csrf_token %}
             {{ form.as_p }}

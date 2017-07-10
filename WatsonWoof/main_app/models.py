@@ -21,12 +21,4 @@ class Dog(models.Model):
 
     def __str__(self):
     	return self.name
-        return self.value
-        return self.gender
-        return self.breed
-        return self.age
-        return self.location
-        return self.childcompatability
-        return self.catcompatability
-        return self.dogcompatability
-        return self.description
+        
