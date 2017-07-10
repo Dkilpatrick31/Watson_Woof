@@ -1,3 +1,36 @@
-h1 {
-  color: green;
+header {
+	position: relative;
+	width: 100%;
+	min-height: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 40%;
+}
+
+.jumbotron {
+	background-image: url('http://wallpapercave.com/wp/BKi0nGl.jpg');
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 40%;
+	color: white;
+}
+
+.navbar {
+	background-color: transparent;
+	border: blue;
+}
+.navbar-inverse .navbar-brand:hover {
+    color: black;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+	color: black;
+
+}
+
+.navbar-inverse {
+	margin-bottom: 0px;
 }

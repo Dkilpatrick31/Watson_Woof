@@ -1,24 +1,79 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-	<title>WatsonWoof</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" / />
-  </head>
-  <body>
-    <h1>WatsonWoof</h1>
-    {% for dog in dogs %}
-      	  <p>Name: {{ dog.name }}</p>
-      	{% if dog.value > 0 %}
+
+{% block content %}
+
+<header>
+  <title>Watson Woof</title>
+</header>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Watson Woof</h1>
+    <p>A place where you can find your best friend, a dog that is. </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      {% for dog in dogs %}
+        <a href="/{{dog.id}}">
+          <p>Name: {{ dog.name }}</p>
+        {% if dog.value > 0 %}
           <p>Value: {{ dog.value}}</p>
-      	{% else %}
+        {% else %}
           <p>Value: Unknown</p>
-      	{% endif%}      <p>Gender: {{ dog.gender}}</p>
-      <p>Breed: {{ dog.breed}}</p>
-      <p>Age: {{ dog.age}}</p>
-      <hr />
-    {% endfor %}
-    <hr />
-    <footer>All Rights Reserved, WatsonWoof 2017</footer>
-  </body>
- </html>
+        {% endif%}
+        </a>
+        <hr />
+      {% endfor %}
+      <h2>Begin</h2>
+      <h2>Finish</h2>
+      <div class="container">
+        {% if messages %}
+        <div class='row'>
+          <div class="col-sm-6 col-sm-offset-3">
+            {% for message in messages %}
+            <p{% if message.tags == "success" %} class="alert alert-success"{% endif %}
+              {% if message.tags == "error" %} class="alert alert-danger"{% endif %}> {{ message}} </p>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+             <a  href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a> |
+             <a  href="{% url 'logout' %}">Logout</a>
+         {% else %}
+             <a  href="{% url 'login' %}">Login</a>
+         {% endif %}
+        {% for dog in dogs %}
+          <a href="/{{dog.id}}">
+            <p>Name: {{ dog.name }}</p>
+          </a>
+          <a href="/user/{{dog.user.username}}"
+            <p>Found By: {{dog.user.username }}</p>
+          </a>
+          {% if dog.value > 0 %}
+            <p>Value: {{ dog.value}}</p>
+          {% else %}
+            <p>Value: Unknown</p>
+          {% endif%}
+          <hr />
+        {% endfor %}
+        <form action="post_url/" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+
+  </div>
+</div>
+
+<button id ="likes" data-id="{{dog.id}}" class="btn btn-mini btn-danger glyphicon glyphicon-heart" type="button">Likes:
+  {% if dog.likes > 0 %} {{ dog.likes }} {% else %} None :( {% endif %}
+</button>
+
+{% endblock %}
