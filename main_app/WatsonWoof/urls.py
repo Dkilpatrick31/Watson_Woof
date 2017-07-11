@@ -1,6 +1,4 @@
-"""blog URL Configuration
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
+"""
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -24,7 +22,7 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     url(r'^comments/', include("comments.urls", namespace='comments')),
-
+	url(r'^', include('main_app.urls')),
     url(r'^register/', register_view, name='register'),
     url(r'^login/', login_view, name='login'),
     url(r'^logout/', logout_view, name='logout'),
