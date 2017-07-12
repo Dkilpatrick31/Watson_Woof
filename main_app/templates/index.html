@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<head>
+  <meta charset="utf-8">
+  <title>Watson Woof</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-grid.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Noticia+Text" rel="stylesheet">
+
+</head>
+
+
+<header>
+  <div <class="header-content">
+    <div class="header-content-inner text-center">
+      <h1 class="header-name"> Watson Woof </h1>
+      <h4 class="header-tag-line"> A Place you come to meet your bestfriend.</h4>
+      <br>
+    </div>
+  </div>
+</header>
+
+<div class="col-sm-12 text-center">
+<h2>Begin</h2>
+</div>
+
+
+
+<footer class="footer">
+<div class="col-sm-12 text-center">
+   <h4 class="header-tag-line">&copy; This is Dane</h4>
+ </div>
+</footer>
+{% endblock %}

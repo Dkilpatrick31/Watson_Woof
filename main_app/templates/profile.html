@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<header>
+  <div class="text-center">
+    <h2 class="profile-header"> Profile </h2>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center" id="myModalLabel">{{username}}'s Profile</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-24">
+              <div class="well text-center scroll">
+                <a href="/{{dog.id}}">
+                  <h4>Email: {{user.email}}</h4>
+                  <p> First Name: {{user.first_name}}</pS>
+                  <p> Last Name: {{user.last_name}}</pS>
+                  <p> Member Since: {{ dog.breed }}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-12" style=S
+    "margin-top: 0px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center" id="myModalLabel">{{username}}'s Picks</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-24">
+              <div class="well text-center scroll">
+          {% for dog in dogs %}
+            <a href="/{{dog.id}}">
+
+                <p>Name: {{ dog.name }}</p>
+              {% if dog.value > 0 %}
+                <p>Value: {{ dog.value}}</p>
+              {% else %}
+                <p>Value: Unknown</p>
+              {% endif%}
+              </a>
+            </a>
+            <a href="{% url 'update_dog' dog.id %}">Edit</a>
+            <a href="{% url 'delete_dog' dog.id %}">Delete</a>
+            {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      {% for dog in dogs %}
+
+        <hr />
+      {% endfor %}
+        <form action="post_url/" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- {% if user.is_authenticated %}
+        <h1>{{ user.username }} welcome to your profile page</h1>
+        <img src="{{ user.userprofile.profile_picture.url }}" width = "150" height = "150"  />
+        <h2>{{ user.userprofile.first_name }}</h2>
+        <h2>{{ user.userprofile.second_name }}</h2>
+        <h2>{{ user.userprofile.user_country }}</h2>
+        {% endif %} -->
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <head>
+    <title>Watson Woof</title>
+  </head>
+
+    <input type="submit" value="Submit" />
+    </form>
+
+    <div class="modal-header">
+      <h1 class="modal-title text-center" id="myModalLabel">Login</h1>
+    </div>
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="well">
+                <form class="form-horizontal" method="post">
+                <fieldset>
+                {% csrf_token %}
+                {{ form.as_p}}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                      <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                  </p>
+                {% endfor %}
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for=""></label>
+                  <div class="col-md-4">
+                    <button id="" name="" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+                </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% endblock %}

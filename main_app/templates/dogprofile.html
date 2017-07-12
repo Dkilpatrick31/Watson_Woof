@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <head>
+    <title>Watson Woof</title>
+  </head>
+
+    <h1>Dog Profile</h1>
+
+    <!-- Get the rest linked with Models.py -->
+    <!-- <p> Location{{ dog.location }}</p>
+    <p> Child Compatability{{ dog.childcompatability }}</p>
+    <p> Cat Compatability{{ dog.catcompatability }}</p>
+    <p> Dog Compatability{{ dog.dogcompatability }}</p>
+    <p> Description{{ dog.description }}</p> -->
+    <div class="col-md-12" style=S
+    "margin-top: 0px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center" id="myModalLabel">{{dog}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-xs-24">
+              <div class="well text-center scroll">
+        <!-- write the code to input a picture of the dog here. -->
+                <a href="/{{dog.id}}">
+                  <h4>Found By: {{dog.user.username }}</h4>
+                  <p> Value: {{ dog.value }}</pS>
+                  <p> Gender: {{ dog.gender }}</p>
+                  <p> Breed: {{ dog.breed }}</p>
+                  <p> Age: {{ dog.age }}</p>
+                </a>
+            <div class="col-sm-12 text-center">
+              <button id ="likes" data-id="{{dog.id}}" class="btn btn-mini btn-danger glyphicon glyphicon-heart" type="button">Likes:
+                {% if dog.likes > 0 %} {{ dog.likes }} {% else %} None :( {% endif %}
+              </button>
+            </div>
+
+
+          {% for dog in dogs %}
+            <a href="/{{dog.id}}">
+
+                <p>Name: {{ dog.name }}</p>
+              {% if dog.value > 0 %}
+                <p>Value: {{ dog.value}}</p>
+              {% else %}
+                <p>Value: Unknown</p>
+              {% endif%}
+              </a>
+            </a>
+            <a href="{% url 'update_dog' dog.id %}">Edit</a>
+            <a href="{% url 'delete_dog' dog.id %}">Delete</a>
+            {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

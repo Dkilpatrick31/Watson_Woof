@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Watson Woof</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-grid.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Noticia+Text" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+  {% include 'navbar.html' %}
+
+  {% block content %}
+  {% endblock %}
+
+  </body>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-grid.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+</body>
+</html>
